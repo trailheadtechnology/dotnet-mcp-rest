@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "todo-mcp-sse": {
+      "command": "/Users/jonathantower/dotnet-api-mcp/code/npx-homebrew.sh",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "http://localhost:5555/mcp/sse"
+      ]
+    }
+  }
+}
