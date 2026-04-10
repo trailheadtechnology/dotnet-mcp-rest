@@ -1,0 +1,18 @@
+{
+  "enabledMcpjsonServers": ["TodoAPI"],
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Is the user asking about todos, todo items, things to do, tasks, or related todo operations? Look for keywords like: 'todo', 'todos', 'to do', 'to-do', 'complete', 'done', 'task', 'tasks', 'list', 'add', 'complete', 'mark', etc. Answer only 'yes' or 'no'.",
+            "statusMessage": "Checking for todo-related queries..."
+          }
+        ]
+      }
+    ]
+  }
+}
+
