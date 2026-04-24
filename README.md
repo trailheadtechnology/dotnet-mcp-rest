@@ -6,4 +6,4 @@ Your existing .NET Web APIs have served you well—but what if they could do mor
 Finally we'll look at where both of these approaches fall short and are only a starting point for a good long-term MCP design. You can use then to jump start the process and then follow the path we outline together to evolve your APIs from technical plumbing to intelligent, task-focused tools that solve real problems using AI—all without starting from scratch.
 
 ## Expert Consultation Offer
-https://bit.ly/th-offer
+https://tinyurl.com/th-offer
