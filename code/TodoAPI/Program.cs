@@ -1,3 +1,7 @@
+using TodoAPI.Auth;
+
+const string ServerUrl = "http://localhost:5555";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Remove console logging to keep stdout clean for stdio transport
@@ -5,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
 builder.Logging.AddDebug();
 
-builder.WebHost.UseUrls("http://localhost:5555");
+builder.WebHost.UseUrls(ServerUrl);
 
 // Add OpenAPI/Swagger services
 builder.Services.AddEndpointsApiExplorer();
@@ -17,14 +21,21 @@ builder.Services
     .WithHttpTransport()
     .WithToolsFromAssembly();
 
+// OAuth: protect the MCP endpoint with Entra ID (see Auth/ and appsettings.json)
+builder.AddEntraOAuth(ServerUrl);
+
 var app = builder.Build();
 
 // Swagger endpoints
 app.UseSwagger();
 app.UseSwaggerUI();
 
+// OAuth: authentication middleware + the endpoints MCP clients use to discover and register
+app.UseEntraOAuth(ServerUrl);
+
 // MCP HTTP endpoint
 app.MapMcp("/mcp");
+//    .RequireAuthorization();
 
 // REST endpoints
 app.MapEndpoints();
